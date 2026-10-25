@@ -17,4 +17,4 @@ SCROLL_STEP_PX = int(os.getenv("SCROLL_STEP_PX", "600"))
 SCROLL_PAUSE = float(os.getenv("SCROLL_PAUSE", "0.4"))               # pause after each scroll (lazy-load)
 
 # Locator under test
-QUICK_LAUNCHER_ID = "o365ql-fabbutton"
+QUICK_LAUNCHER_ID = "o365ql-fab"
