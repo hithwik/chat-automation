@@ -1,4 +1,4 @@
-name: Selenium - M365 Quick Launcher Tests
+name: Selenium - Chat Tests
 
 on:
   workflow_dispatch:        # adds a "Run workflow" button in the Actions tab
