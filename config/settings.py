@@ -16,5 +16,7 @@ ELEMENT_WAIT_TIMEOUT = int(os.getenv("ELEMENT_WAIT_TIMEOUT", "20"))   # seconds 
 SCROLL_STEP_PX = int(os.getenv("SCROLL_STEP_PX", "600"))
 SCROLL_PAUSE = float(os.getenv("SCROLL_PAUSE", "0.4"))               # pause after each scroll (lazy-load)
 
+POST_LOAD_WAIT = int(os.getenv("POST_LOAD_WAIT", "10"))   # seconds to wait after the page opens
+
 # Locator under test
 QUICK_LAUNCHER_ID = "o365ql-fab"
