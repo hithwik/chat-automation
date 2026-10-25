@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 from config import settings
@@ -9,11 +11,15 @@ log = get_logger(__name__)
 
 @pytest.mark.smoke
 def test_m365_quick_launcher_exists_and_visible(driver, url):
-    """Open each URL and verify the Microsoft 365 Quick Launcher (id=o365ql-fabbutton)
-    exists in the DOM and is visible after scrolling through the page."""
+    """Open each URL, wait for the page to settle, then verify the Microsoft 365 Quick Launcher
+    (id=o365ql-fabbutton) exists in the DOM and is visible after scrolling through the page."""
     log.info("Opening %s", url)
     page = QuickLauncherPage(driver)
     page.open(url)
+
+    # Wait after the page opens so scripts and late-loading widgets (like the launcher) can load
+    log.info("Waiting %s seconds for the page to finish loading widgets...", settings.POST_LOAD_WAIT)
+    time.sleep(settings.POST_LOAD_WAIT)
 
     result = page.check_quick_launcher(url)
     log.info("Result for %s -> %s", url, result.summary())
